@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'London')">Login</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Clientes</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Detalhes</button>
+    <button class="tablinks" href="#" (click)="onLogoff($event)">Logoff</button>
+  </div>
+
+  <h3>Escolha uma das opções:</h3>
+
+  <div id="London" class="tabcontent">
+
+    <a routerLink="/login">Login no sistema</a>
+  </div>
+
+  <div id="Paris" class="tabcontent">
+    <h3>Clientes</h3>
+    <a routerLink="/dados">Dados dos clientes</a>
+  </div>
+
+  <div id="Tokyo" class="tabcontent">
+    <h3>Detalhes</h3>
+    <a routerLink="/detalhes">Detalhes</a>
+
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <div class="row">
+      <div class="col">
+          <app-lista-cliente (idClicado)="enviarDetalhe($event)"></app-lista-cliente>
+      </div>
+
+      <div class="col">
+          <app-detalhe-cliente [cliente]="clienteclicado"></app-detalhe-cliente>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

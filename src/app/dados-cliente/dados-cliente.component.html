@@ -1,0 +1,83 @@
+<h3 class="container col-6">
+  Cadastro do Cliente
+</h3>
+<div class="card container col-6">
+  <form class="card-block" (ngSubmit)="enviarDados()" *ngIf="! enviado" #formulario="ngForm">
+      <div class="form-group" [class.has-success]="nome.valid" [class.has-danger]="nome.invalid">
+          <label for="nome">Nome</label>
+          <input class="form-control" [class.form-control-success]="nome.valid" type="text" id="nome" [(ngModel)]="_nome"
+                 name="nome" #nome="ngModel" placeholder="digite o nome" required>
+
+          <div [hidden]="nome.valid || nome.pristine">
+              <small [ngClass]="{'form-control-danger': 'nome.invalid || nome.dirty',
+                             'form-control-feedback': 'nome.invalid || nome.dirty'}">O nome é uma campo obrigatório!</small>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="text" id="email" [(ngModel)]="_email" name="email" #email="ngModel" placeholder="digite o email">
+      </div>
+
+      <div class="form-group" [class.has-success]="_limiteCredito" [class.has-danger]="_limiteCredito">
+        <label for="limiteCredito">Limite de Crédito</label>
+        <input class="form-control" [class.form-control-success]="nome.valid" type="number"
+        id="limite" [(ngModel)]="_limiteCredito" name="limite" #limiteCredito="ngModel" required>
+
+        <div [hidden]="_limiteCredito || _limiteCredito">
+            <small [ngClass]="{'form-control-danger': 'limite.invalid || limite.drity',
+                           'form-control-feedback': 'limite.invalid || limite.drity'}">O limite de crédito é uma campo obrigatório!</small>
+        </div>
+      </div>
+
+      <div class="form-group" [class.has-success]="_situacao" [class.has-danger]="_situacao">
+        <label for="situacao">Situação</label>
+        <input class="form-control" [class.form-control-success]="nome.valid" type="text"
+        id="situacao" [(ngModel)]="_situacao" name="situacao" #limiteCredito="ngModel" required>
+
+        <div [hidden]="_situacao || _situacao">
+            <small [ngClass]="{'form-control-danger': 'limite.invalid || limite.drity',
+                           'form-control-feedback': 'limite.invalid || limite.drity'}">Situação é uma campo obrigatório!</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="tipo">Tipo de Cliente</label>
+          <select id="tipo" [(ngModel)]="_tipo" name="tipo" #tipo="ngModel">
+          <option class="form-control" *ngFor="let item of tipos"  [value]="item">{{item}}</option>
+      </select>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="formulario.invalid">Cadastrar</button>
+  </form>
+</div>
+
+<div class="card card-block container col-6" *ngIf="enviado">
+  <div>
+      <h2>Dados do Cliente Enviado!</h2>
+  </div>
+
+  <div>
+      <p>Nome do Cliente: <strong>{{_nome}}</strong></p>
+  </div>
+
+  <div>
+      <p>Email do Cliente: <strong>{{_email}}</strong></p>
+  </div>
+
+  <div>
+    <p>Limite de Crédito: <strong>{{_limiteCredito}}</strong></p>
+  </div>
+
+  <div>
+    <p>Situação: <strong>{{_situacao}}</strong></p>
+  </div>
+
+  <div>
+      <p>Tipo do Cliente: <strong>{{_tipo}}</strong></p>
+  </div>
+  <button (click)="voltar()">Voltar</button>
+
+</div>
+
+

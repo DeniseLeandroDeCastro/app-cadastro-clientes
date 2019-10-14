@@ -1,0 +1,48 @@
+body {
+  font-family: Arial;
+}
+
+.container-fluid {
+  background-color: #D3D3D3;
+  height: 1000px;
+
+}
+
+/* Tabela */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #6495ED;
+}
+
+/* Botões dentro da tabela */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Mudança de cor no background dos botões (on hover) */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Criar uma active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Conteúdo da tabela */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+

@@ -1,0 +1,32 @@
+<!--Modal de Login-->
+<h4>Login no Sistema</h4>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" (ngSubmit)="onLogin()">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="../../assets/img/usuariosCadeado.jpg" alt="Usuários">
+    </div>
+
+    <div class="container" style="background-color:#B0C4DE">
+      <label for="nome"><b>Usuário</b></label>
+      <input type="text" placeholder="Nome" name="nome" [(ngModel)]="usuario" required>
+
+      <label for="psw"><b>Senha</b></label>
+      <input type="password" placeholder="Senha" name="psw" [(ngModel)]="senha" required>
+
+      <button type="submit" class="form-control" >Login</button>
+      <p>
+      {{ mensagemErro }}
+      </p>
+    </div>
+
+    <div class="container form-group" style="background-color:#B0C4DE">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+      <span class="psw">Esqueceu a senha <a href="#">Senha?</a></span>
+    </div>
+  </form>
+</div>
